@@ -14,6 +14,17 @@ itself is the application.
 
 ---
 
+## Technologies
+
+- Lua 5.2 (CC:Tweaked)
+- ComputerCraft / CC:Tweaked
+- Rednet networking
+- JSON serialization
+- SHA-256 password hashing
+- Git
+
+---
+
 ## Architecture
 
 Each service runs as its own ComputerCraft computer on a wired network,
