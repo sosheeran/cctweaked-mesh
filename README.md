@@ -20,24 +20,7 @@ Each service runs as its own ComputerCraft computer on a wired network,
 identified by a fixed computer ID. A central firewall validates and routes
 all client traffic to the appropriate backend service over `rednet`.
 
-```
-            ┌─────────────┐
- Client ───▶│  Firewall   │── validates session, routes by service
- (ID 25+)   │  (ID 2)     │
-            └──────┬──────┘
-                    │
-      ┌─────────────┼──────────────┬─────────────┐
-      ▼             ▼              ▼             ▼
- ┌─────────┐  ┌───────────┐  ┌───────────┐  ┌─────────┐
- │  Auth   │  │   Mail    │  │  Storage  │  │   NOC   │
- │ (ID 1)  │  │  (ID 3)   │  │  (ID 4)   │  │ (ID 6)  │
- └─────────┘  └───────────┘  └───────────┘  └─────────┘
-                                   │
-                              ┌─────────┐
-                              │   Log   │
-                              │ (ID 0)  │
-                              └─────────┘
-```
+![Network architecture and topology](Documents/Architecture_Topology.svg)
 
 | ID | Service        | Responsibility                                          |
 |----|----------------|----------------------------------------------------------|
@@ -75,6 +58,20 @@ another service's ID directly.
   offline.
 - **Client** — the actual terminal program a player runs: login screen,
   mail inbox, alerts, and a storage browser/request UI.
+
+### Client authentication flow
+
+How a client logs in and obtains a session token through the firewall and
+auth server:
+
+![Client authentication flow](Documents/Client_Authentication_Flow.svg)
+
+### Packet breakdown
+
+The structure of a packet as it travels from client to firewall to backend
+service:
+
+![Packet breakdown](Documents/Packet_Breakdown.svg)
 
 ## What's intentionally not here yet
 
