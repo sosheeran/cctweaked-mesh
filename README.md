@@ -16,7 +16,7 @@ itself is the application.
 
 ## Technologies
 
-- Lua 5.2 (CC:Tweaked)
+- Lua 5.1 (CC:Tweaked)
 - ComputerCraft / CC:Tweaked
 - Rednet networking
 - JSON serialization
